@@ -1,0 +1,105 @@
+h1 {
+    font-size: 4rem!important;
+    color: white;
+    font-weight: bold!important;
+}
+a {
+    color: #f8f9fa!important;
+    font-size: 22px;
+}
+
+.container {
+    margin-top: 4rem!important;
+}
+
+.img-box-black {
+    background: black;
+    width: 650px;
+    height: 650px;
+    margin: 2rem auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+}
+
+.img-box-gold {
+    background: gold;
+    width: 650px;
+    height: 650px;
+    margin: 2rem auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+}
+
+.app-down {
+    position: absolute;
+    bottom: 20%;
+}
+
+/* 카드 회전 */
+.card {
+    width: 650px;
+    height: 650px!important;
+    perspective: 1000px;
+    cursor: pointer;
+    border: none!important;
+}
+.card-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: transform 1s;
+    backface-visibility: hidden;
+}
+.front {
+    background-color: gold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.back {
+    background-color: gold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg);
+}
+.card:hover .front {
+    transform: rotateY(180deg);
+}
+.card:hover .back {
+    transform: rotateY(360deg);
+}
+
+.front img,
+.back img {
+    width: 90%;
+    height: auto;
+}
+
+@media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1520px!important;
+    }
+}
+
+@media screen and (max-width:960px) {
+    .img-box-black {
+        width: 300px;
+        height: 300px;
+    }
+    .icon-img {
+        width: 200px;
+    }
+    .img-box-gold {
+        width: 300px;
+        height: 300px;
+    }
+    .navbar-brand {
+        margin-left: 1rem!important;
+    }
+    .app-down {
+        display: none;
+    }
+}
