@@ -3,9 +3,10 @@ h1 {
     color: white;
     font-weight: bold!important;
 }
-a {
+h2 {
     color: #f8f9fa!important;
     font-size: 22px;
+    text-decoration: underline;
 }
 
 .container {
@@ -30,11 +31,6 @@ a {
     display: flex;
     align-items: center;
     justify-content:space-around;
-}
-
-.app-down {
-    position: absolute;
-    bottom: 20%;
 }
 
 /* 카드 회전 */
@@ -78,13 +74,66 @@ a {
     height: auto;
 }
 
+/* 앱 다운로드 알림창 */
+.app-down {
+    position: absolute;
+    bottom: 20%;
+    cursor: pointer;
+}
+
+.centered-box-tooltip {
+    display: none;
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    padding: 5px;
+    z-index: 1;
+    background-color: white;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    transform: translateX(-50%);
+}
+
+.centered-box-tooltip img {
+    width: 200px;
+    height: 200px;
+}
+
+.app-down:hover .centered-box-tooltip {
+    display: block;
+}
+
 @media (min-width: 1400px) {
     .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-        max-width: 1520px!important;
+        max-width: 1520px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .img-box-black {
+        width: 500px;
+        height: 500px;
+    }
+    .img-box-gold {
+        width: 500px;
+        height: 500px;
+    }
+    .card {
+        width: 500px;
+        height: 500px!important;
+    }
+    .icon-img {
+        width: 400px;
+    }
+    .app-down {
+        bottom: 5%;
     }
 }
 
 @media screen and (max-width:960px) {
+    .card {
+        width: 300px;
+        height: 300px!important;
+    }
     .img-box-black {
         width: 300px;
         height: 300px;
@@ -101,5 +150,8 @@ a {
     }
     .app-down {
         display: none;
+    }
+    h1 {
+        font-size: 30px!important;
     }
 }
