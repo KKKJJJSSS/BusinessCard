@@ -84,7 +84,7 @@ h2 {
 .centered-box-tooltip {
     display: none;
     position: absolute;
-    bottom: 110%;
+    bottom: 130%;
     left: 50%;
     padding: 5px;
     z-index: 1;
@@ -94,8 +94,8 @@ h2 {
 }
 
 .centered-box-tooltip img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 
 .app-down:hover .centered-box-tooltip {
@@ -109,6 +109,9 @@ h2 {
 }
 
 @media (min-width: 992px) {
+    h2 {
+        font-size: 20px!important;
+    }
     .img-box-black {
         width: 500px;
         height: 500px;

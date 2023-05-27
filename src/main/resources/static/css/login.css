@@ -1,0 +1,11 @@
+a {
+    color: black;
+}
+.login-box {
+    width: 300px;
+    height: 400px;
+    margin: auto;
+}
+.search-signup {
+    text-align: center;
+}

@@ -19,4 +19,8 @@ public class MainController {
     public String signup() {
         return "signup";
     }
+    @GetMapping("/idsearch")
+    public String idsearch() {
+        return "idsearch";
+    }
 }
