@@ -116,7 +116,7 @@ h2 {
     }
     .card {
         width: 650px!important;
-        height: 650px!important;
+        height: 650px;
     }
 }
 
@@ -134,13 +134,13 @@ h2 {
     }
     .card {
         width: 500px;
-        height: 500px!important;
+        height: 500px;
     }
     .icon-img {
         width: 400px;
     }
     .app-down {
-        bottom: 40%;
+        display: none;
     }
 }
 
