@@ -36,7 +36,7 @@ h2 {
 /* 카드 회전 */
 .card {
     width: 650px;
-    height: 650px!important;
+    height: 650px;
     perspective: 1000px;
     cursor: pointer;
     border: none!important;
@@ -116,11 +116,14 @@ h2 {
     }
     .card {
         width: 650px!important;
-        height: 650px;
+        height: 650px!important;
+    }
+    .app-down {
+        bottom: 25% !important;
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
     h2 {
         font-size: 20px!important;
     }
@@ -140,7 +143,7 @@ h2 {
         width: 400px;
     }
     .app-down {
-        display: none;
+        bottom: 40%;
     }
 }
 
