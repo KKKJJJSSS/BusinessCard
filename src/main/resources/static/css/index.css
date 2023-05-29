@@ -77,7 +77,7 @@ h2 {
 /* 앱 다운로드 알림창 */
 .app-down {
     position: absolute;
-    bottom: 20%;
+    bottom: 25%;
     cursor: pointer;
 }
 
@@ -134,10 +134,13 @@ h2 {
     }
     .card {
         width: 500px;
-        height: 500px;
+        height: 500px!important;
     }
     .icon-img {
         width: 400px;
+    }
+    .app-down {
+        bottom: 40%;
     }
 }
 
