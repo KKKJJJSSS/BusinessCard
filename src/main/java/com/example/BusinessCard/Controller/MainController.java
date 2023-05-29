@@ -9,15 +9,9 @@ public class MainController {
     public String index() {
         return "index";
     }
-
-    @GetMapping("/login")
+    @GetMapping("/loginpage")
     public String login() {
         return "login";
-    }
-
-    @GetMapping("/signup")
-    public String signup() {
-        return "signup";
     }
     @GetMapping("/idsearch")
     public String idsearch() {

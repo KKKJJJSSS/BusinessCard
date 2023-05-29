@@ -106,6 +106,18 @@ h2 {
     .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
         max-width: 1520px !important;
     }
+    .img-box-black {
+        width: 650px!important;
+        height: 650px!important;
+    }
+    .img-box-gold {
+        width: 650px!important;
+        height: 650px!important;
+    }
+    .card {
+        width: 650px!important;
+        height: 650px!important;
+    }
 }
 
 @media (min-width: 992px) {
@@ -122,13 +134,10 @@ h2 {
     }
     .card {
         width: 500px;
-        height: 500px!important;
+        height: 500px;
     }
     .icon-img {
         width: 400px;
-    }
-    .app-down {
-        bottom: 5%;
     }
 }
 

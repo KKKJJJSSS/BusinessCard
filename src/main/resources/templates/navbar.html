@@ -3,7 +3,7 @@
 
 <style>
   .navbar {
-    background-color: #333!important;
+    background-color: #262626!important;
   }
   .navbar-collapse {
     justify-content: center;
@@ -22,30 +22,34 @@
   .nav-link {
     color: white;
   }
-  .navbar-toggler {
-    background-color: white!important;
+  @media screen and (max-width:960px) {
+    .navbar-collapse {
+      margin-right: 0rem;
+    }
+    .nav-item {
+      margin-right: 0rem;
+    }
   }
 </style>
-<nav class="navbar navbar-expand-lg bg-light fixed-top">
+<nav class="navbar navbar-expand bg-light fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href=/index>
-      <img src="../static/icon/icon.png"/>
+    <a class="navbar-brand" href="/index">
+      <img src="/static/icon/icon.png" />
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            arNia-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <div class="nav-container">
         <div class="navbar-content">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href=/login>로그인</a>
+            <li class="nav-item dropdown" id="logged-section">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span id="usernameLbl"></span>
+              </a>
+              <ul class="dropdown-menu logged-user-dropdown" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" onclick="logout()" style="cursor:pointer">로그아웃</a></li>
+              </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href=/signup>회원가입</a>
-            </li>
+            <li class="nav-item" id="login-section">
+              <a class="nav-link" href="/loginpage">로그인/회원가입</a>
             </li>
           </ul>
         </div>
@@ -53,3 +57,7 @@
     </div>
   </div>
 </nav>
+<script type="text/javascript" src="../static/js/navbar.js"></script>
+<script type="text/javascript">
+  updateNavbar(); // 이 호출이 페이지 로드 시 마다 실행되어야 합니다.
+</script>
