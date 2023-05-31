@@ -17,4 +17,8 @@ public class MainController {
     public String idsearch() {
         return "idsearch";
     }
+    @GetMapping("/uploadcard")
+    public String uploadcard() {
+        return "uploadcard";
+    }
 }
