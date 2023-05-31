@@ -16,7 +16,6 @@
 }
 .contents .upload-box {
     width: 100%;
-    margin-right: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -79,6 +78,5 @@
 @media screen and (max-width: 768px) {
     .wrap {
         width: 350px;
-        margin: 6rem 1rem 1rem;
     }
 }
