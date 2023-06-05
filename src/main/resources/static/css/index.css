@@ -107,6 +107,10 @@ h2 {
     height: 500px!important;
 }
 
+.img-thumbnail {
+    margin: 1rem;
+    width: 100px!important;
+}
 
 @media (min-width: 1400px) {
     .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
