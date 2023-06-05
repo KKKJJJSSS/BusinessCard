@@ -76,6 +76,7 @@ h2 {
 /* 앱 다운로드 알림창 */
 .app-down {
     position: absolute;
+    top: 85%;
     bottom: 25%;
     cursor: pointer;
 }
