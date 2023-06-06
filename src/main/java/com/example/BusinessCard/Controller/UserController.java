@@ -5,6 +5,7 @@ import com.example.BusinessCard.Mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,6 +15,9 @@ public class UserController {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private HttpSession httpSession;
 
     @PostMapping("/register")
     public Map<String, String> signup(@RequestBody UserDto user) {
@@ -39,6 +43,8 @@ public class UserController {
         if (foundUser != null && foundUser.getPassword().equals(user.getPassword())) {
             response.put("result", "success");
             response.put("username", foundUser.getUsername()); // username 값을 응답에 추가합니다.
+
+            httpSession.setAttribute("username", foundUser.getUsername());
         } else {
             response.put("result", "fail");
         }

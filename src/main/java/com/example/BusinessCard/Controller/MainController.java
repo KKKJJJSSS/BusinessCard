@@ -21,8 +21,4 @@ public class MainController {
     public String uploadcard() {
         return "uploadcard";
     }
-    @GetMapping("/card")
-    public String card() {
-        return "card";
-    }
 }

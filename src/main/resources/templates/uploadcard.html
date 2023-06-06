@@ -25,71 +25,68 @@
         <div class="wrap">
             <div id="root">
                 <div class="contents">
-                    <form action="/upload" class="upload-box" enctype="multipart/form-data" method="POST">
-                        <div class="drag-file" id="drop-file">
-                            <img alt="파일 아이콘" class="image" src="https://img.icons8.com/pastel-glyph/2x/image-file.png">
-                            <p class="message">이미지 드래그</p>
-                            <img alt="미리보기 이미지" class="preview" src="">
-                        </div>
-                        <label class="file-label" for="chooseFile">명함 올리기</label>
-                        <input accept="image/png, image/jpeg, image/gif, image/jpg" class="file" id="chooseFile" name="file"
-                               onchange="dropFile.handleFiles(this.files)"
-                               type="file">
+                    <form action="/card/upload" class="upload-box" id="uploadForm" method="POST">
                         <div class="table row">
-                          <hr>
+                            <hr>
                             <div class="label mb-3 col">
                                 <label class="form-label" for="name">이름</label>
-                                <input class="form-control" id="name" placeholder="이름 입력" type="text">
+                                <input class="form-control" id="name" name="name" placeholder="이름 입력" type="text">
                             </div>
                             <div class="label mb-3 col">
                                 <label class="form-label" for="department">부서</label>
-                                <input class="form-control" id="department" placeholder="부서명 입력" type="text">
+                                <input class="form-control" id="department" name="department" placeholder="부서명 입력"
+                                       type="text">
                             </div>
                         </div>
                         <div class="table row">
                             <div class="label mb-3 col">
                                 <label class="form-label" for="position">직책</label>
-                                <input class="form-control" id="position" placeholder="직책 입력" type="text">
+                                <input class="form-control" id="position" name="position" placeholder="직책 입력"
+                                       type="text">
                             </div>
                             <div class="label mb-3 col">
-                                <label class="form-label" for="company">회사</label>
-                                <input class="form-control" id="company" placeholder="회사명 입력" type="text">
+                                <label class="form-label" for="company_name">회사</label>
+                                <input class="form-control" id="company_name" name="company_name" placeholder="회사명 입력"
+                                       type="text">
                             </div>
                             <hr>
                         </div>
                         <div class="table row">
                             <div class="label mb-3 col">
                                 <label class="form-label" for="email">이메일</label>
-                                <input class="form-control" id="email" placeholder="이메일 주소 입력" type="email">
+                                <input class="form-control" id="email" name="email" placeholder="이메일 주소 입력"
+                                       type="email">
                             </div>
                             <div class="label mb-3 col">
                                 <label class="form-label" for="address">주소</label>
-                                <input class="form-control" id="address" placeholder="주소 입력" type="text">
+                                <input class="form-control" id="address" name="address" placeholder="주소 입력" type="text">
                             </div>
                         </div>
                         <div class="table row">
                             <div class="label mb-3 col">
-                                <label class="form-label" for="phone">휴대폰</label>
-                                <input class="form-control" id="phone" placeholder="휴대폰 번호 입력" type="number">
+                                <label class="form-label" for="phone_number">휴대폰</label>
+                                <input class="form-control" id="phone_number" name="phone_number"
+                                       placeholder="휴대폰 번호 입력" type="number">
                             </div>
                             <div class="label mb-3 col">
                                 <label class="form-label" for="number">유선전화</label>
-                                <input class="form-control" id="number" placeholder="유선전화 번호 입력" type="number">
+                                <input class="form-control" id="number" name="number" placeholder="유선전화 번호 입력"
+                                       type="number">
                             </div>
                         </div>
                         <div class="table row">
                             <div class="label mb-3 col">
                                 <label class="form-label" for="fax">팩스</label>
-                                <input class="form-control" id="fax" placeholder="팩스 번호 입력" type="number">
+                                <input class="form-control" id="fax" name="fax" placeholder="팩스 번호 입력" type="number">
                             </div>
                             <div class="label mb-3 col">
                                 <label class="form-label" for="memo">메모</label>
-                                <input class="form-control" id="memo" placeholder="메모 입력" type="text">
+                                <input class="form-control" id="memo" name="memo" placeholder="메모 입력" type="text">
                             </div>
                         </div>
-                      <div class="upload-box">
-                        <input class="submit" type="submit" value="저장">
-                      </div>
+                        <div class="upload-box">
+                            <input class="submit" type="submit" value="저장">
+                        </div>
                     </form>
                 </div>
             </div>
@@ -105,7 +102,8 @@
         updateNavbar();
     });
 </script>
-<script src="../static/js/uploadcard.js"></script>
+<!--<script src="../static/js/uploadcard.js"></script>-->
+<script src="../static/js/upload.js"></script>
 
 </body>
 </html>

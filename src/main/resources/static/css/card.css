@@ -1,0 +1,18 @@
+.container {
+    margin-top: 4rem!important;
+}
+
+.wrap-left {
+    border: solid 1px darkgray;
+    margin: 3rem;
+}
+
+.wrap-right {
+    border: solid 1px darkgray;
+    margin: 1rem;
+}
+
+.card-box {
+    max-width: 95%;
+    margin: 1rem;
+}
