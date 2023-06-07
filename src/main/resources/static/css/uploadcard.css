@@ -2,9 +2,10 @@ html, main {
     background: #eaeaea;
 }
 
-.wrap {
-    width: 800px;
-    margin: 6rem auto auto;
+.main-wrap {
+    margin-top: 6rem;
+    display: flex;
+    justify-content: center;
 }
 
 #root {
@@ -16,8 +17,12 @@ html, main {
 .contents {
     display: flex;
     flex-direction: row;
-    margin-top: 30px;
+    border-radius: 6px;
+    background: white;
+    margin-bottom: 2rem;
+    border: solid 1px darkgray;
 }
+
 .contents .upload-box {
     width: 100%;
     display: flex;
@@ -75,8 +80,19 @@ html, main {
     cursor: pointer;
     margin-bottom: 2rem;
 }
+
 .contents .upload-box .file {
     display: none;
+}
+
+.label {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.form-label {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 
