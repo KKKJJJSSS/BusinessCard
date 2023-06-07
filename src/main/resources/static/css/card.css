@@ -1,3 +1,7 @@
+html, main {
+    background: #eaeaea;
+}
+
 .main-wrap {
     margin-top: 6rem!important;
     justify-content: center;
@@ -9,6 +13,7 @@
     margin: 2rem;
     height: 100%;
     border-radius: 0.375rem;
+    background: white;
 }
 
 .wrap-left {
