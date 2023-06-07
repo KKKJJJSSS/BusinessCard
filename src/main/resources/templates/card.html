@@ -16,84 +16,107 @@
     <link href="../static/css/card.css" rel="stylesheet" type="text/css"/>
     <script src="../static/js/navbar.js" th:src="@{/static/js/navbar.js}" type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../static/js/card.js"></script>
 </head>
 <body>
 <header>
     <div th:replace="./navbar.html"></div>
 </header>
 <main>
-    <div class="container">
-        <div class="main-row row">
-            <div class="wrap-left col">
-                <div th:each="card : ${cardList}" th:if="${card.username} == ${username}" class="card-box row">
-                    <hr>
-                    <input type="checkbox" class="toggle-check" th:onclick="displaySelectedInfo(this)"
-                           th:data-id="${card.id}" th:data-name="${card.name}" th:data-position="${card.position}"
-                           th:data-department="${card.department}"
-                           th:data-company-name="${card.company_name}" th:data-email="${card.email}"
-                           th:data-phone-number="${card.phone_number}"
-                           th:data-number="${card.number}" th:data-fax="${card.fax}"
-                           th:data-address="${card.address}" th:data-created-at="${card.created_at}"
-                           th:data-memo="${card.memo}"/>
-                    <p th:text="${card.name}"></p>
-                    <p th:text="${card.position} + ' / ' + ${card.department}"></p>
-                    <p th:text="${card.company_name}"></p>
-                    <hr>
+    <div class="container-fluid">
+        <div class="main-wrap row">
+            <div class="wrap-left col-lg-2 col-md-12">
+                <div id="pagination-container">
+                    <div class="main-row">
+                        <div class="card-box row" th:each="card : ${cardList}" th:if="${card.username} == ${username}">
+                            <hr>
+                            <div class="box-container">
+                                <input class="toggle-check" th:data-address="${card.address}" th:data-company-name="${card.company_name}"
+                                       th:data-created-at="${card.created_at}" th:data-department="${card.department}"
+                                       th:data-email="${card.email}"
+                                       th:data-fax="${card.fax}"
+                                       th:data-id="${card.id}" th:data-memo="${card.memo}"
+                                       th:data-name="${card.name}"
+                                       th:data-number="${card.number}" th:data-phone-number="${card.phone_number}"
+                                       th:data-position="${card.position}" th:onclick="displaySelectedInfo(this)"
+                                       type="checkbox"/>
+                                <div class="content">
+                                    <p th:text="${card.name}"></p>
+                                    <p th:text="${card.position} + ' / ' + ${card.department}"></p>
+                                    <p th:text="${card.company_name}"></p>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mt-3" id="pagination-buttons">
+                    <button id="previous-page" class="btn btn-outline-secondary"><</button>
+                    <span id="page-number" class="page-number"></span>
+                    <button id="next-page" class="btn btn-outline-secondary">></button>
                 </div>
             </div>
-            <div class="wrap-right col">
+            <div class="wrap-right col-lg-5 col-md-12">
+                <div class="card-add">
+                    <a class="btn btn-secondary" href=/uploadcard>명함 등록</a>
+                </div>
                 <div class="row">
                     <div class="col">
                         <hr>
                         <div class="card-box row">
+                            <p class="card-text">이름</p>
                             <p id="display-name"></p>
                         </div>
                         <hr>
                         <div class="card-box row">
+                            <p class="card-text">직책/부서</p>
                             <p id="display-position-department"></p>
                         </div>
                         <hr>
                         <div class="card-box row">
+                            <p class="card-text">회사</p>
                             <p id="display-company-name"></p>
                         </div>
                         <hr>
                         <div class="card-box row">
+                            <p class="card-text">이메일</p>
                             <p id="display-email"></p>
                         </div>
                         <hr>
+                        <div class="card-box row">
+                            <p class="card-text">주소</p>
+                            <p id="display-address"></p>
+                        </div>
                     </div>
                     <div class="col">
                         <hr>
                         <div class="card-box row">
+                            <p class="card-text">휴대폰</p>
                             <p id="display-phone-number"></p>
                         </div>
                         <hr>
                         <div class="card-box row">
+                            <p class="card-text">유선전화</p>
                             <p id="display-number"></p>
                         </div>
                         <hr>
                         <div class="card-box row">
+                            <p class="card-text">팩스</p>
                             <p id="display-fax"></p>
                         </div>
                         <hr>
+                        <div class="card-box row">
+                            <p class="card-text">등록일</p>
+                            <p id="display-created-at"></p>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <hr>
                         <div class="card-box row">
-                            <p id="display-address"></p>
-                        </div>
-                        <hr>
-                        <div class="card-box row">
-                            <p id="display-created-at"></p>
-                        </div>
-                        <hr>
-                        <div class="card-box row">
+                            <p class="card-text">메모</p>
                             <p id="display-memo"></p>
                         </div>
-                        <hr>
                     </div>
                 </div>
             </div>
@@ -104,6 +127,7 @@
     <div th:replace="./footer.html"></div>
 </footer>
 
+<script src="../static/js/card.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function () {
         updateNavbar();

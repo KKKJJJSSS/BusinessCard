@@ -1,18 +1,74 @@
-.container {
-    margin-top: 4rem!important;
+.main-wrap {
+    margin-top: 6rem!important;
+    justify-content: center;
+}
+
+.wrap-left,
+.wrap-right {
+    border: solid 1px darkgray;
+    margin: 2rem;
+    height: 100%;
 }
 
 .wrap-left {
-    border: solid 1px darkgray;
-    margin: 3rem;
-}
-
-.wrap-right {
-    border: solid 1px darkgray;
-    margin: 1rem;
+    margin-bottom: 2rem;
 }
 
 .card-box {
-    max-width: 95%;
-    margin: 1rem;
+    margin-top: 1rem!important;
 }
+
+.wrap-right .card-box {
+    margin-left: 5px;
+    margin-right: 5px;
+    word-wrap: break-word;
+}
+
+.card-text {
+    font-weight: bold;
+}
+
+.box-container {
+    position: relative;
+}
+
+.toggle-check {
+    position: absolute;
+    top: 45%;
+    left: 5%;
+    transform: translateY(-50%);
+}
+
+.content {
+    margin-left: 30px;
+}
+
+/* 페이지 넘버 */
+.mt-3 {
+    margin-bottom: 1rem;
+}
+
+.btn .btn-outline-secondary,
+.page-number {
+    margin: auto;
+}
+
+/* card-add */
+.card-add {
+    text-align: right;
+    margin-right: 10px;
+}
+
+.btn-secondary {
+    margin-top: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .wrap-left,
+    .wrap-right {
+        width: 80% !important;
+    }
+}
+
+
+
