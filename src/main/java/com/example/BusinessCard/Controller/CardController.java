@@ -3,11 +3,14 @@ package com.example.BusinessCard.Controller;
 import com.example.BusinessCard.Dto.CardDto;
 import com.example.BusinessCard.Mapper.CardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -34,10 +37,20 @@ public class CardController {
         return response;
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteCard(@PathVariable int id) {
+        try {
+            cardMapper.deleteCard(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     private boolean isInputValid(CardDto card) {
         return (card.getName() != null && !card.getName().trim().isEmpty());
     }
-
 }
+
 
 

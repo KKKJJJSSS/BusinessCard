@@ -1,9 +1,7 @@
 package com.example.BusinessCard.Mapper;
 
 import com.example.BusinessCard.Dto.CardDto;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -15,4 +13,7 @@ public interface CardMapper {
 
     @Select("SELECT * FROM business_card")
     List<CardDto> getCardList();
+
+    @Delete("DELETE FROM business_card WHERE id = #{id}")
+    Integer deleteCard(@Param("id") int id);
 }

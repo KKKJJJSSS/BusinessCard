@@ -25,34 +25,36 @@
     <div class="container-fluid">
         <div class="main-wrap row">
             <div class="wrap-left col-lg-2 col-md-12">
+                <div class="card-add">
+                    <button class="btn btn-secondary" id="delete-selected-btn">삭제</button>
+                </div>
                 <div id="pagination-container">
-                    <div class="main-row">
+                    <div class="-row">
                         <div class="card-box row" th:each="card : ${cardList}" th:if="${card.username} == ${username}">
-                            <hr>
                             <div class="box-container">
-                                <input class="toggle-check" th:data-address="${card.address}" th:data-company-name="${card.company_name}"
+                                <hr>
+                                <input class="toggle-check" th:data-address="${card.address}"
+                                       th:data-company-name="${card.company_name}"
                                        th:data-created-at="${card.created_at}" th:data-department="${card.department}"
-                                       th:data-email="${card.email}"
-                                       th:data-fax="${card.fax}"
-                                       th:data-id="${card.id}" th:data-memo="${card.memo}"
-                                       th:data-name="${card.name}"
+                                       th:data-email="${card.email}" th:data-fax="${card.fax}" th:data-id="${card.id}"
+                                       th:data-memo="${card.memo}" th:data-name="${card.name}"
                                        th:data-number="${card.number}" th:data-phone-number="${card.phone_number}"
                                        th:data-position="${card.position}" th:onclick="displaySelectedInfo(this)"
-                                       type="checkbox"/>
+                                       type="checkbox">
                                 <div class="content">
                                     <p th:text="${card.name}"></p>
                                     <p th:text="${card.position} + ' / ' + ${card.department}"></p>
                                     <p th:text="${card.company_name}"></p>
                                 </div>
+                                <hr>
                             </div>
-                            <hr>
                         </div>
                     </div>
                 </div>
                 <div class="d-flex justify-content-center mt-3" id="pagination-buttons">
-                    <button id="previous-page" class="btn btn-outline-secondary"><</button>
-                    <span id="page-number" class="page-number"></span>
-                    <button id="next-page" class="btn btn-outline-secondary">></button>
+                    <button class="btn btn-outline-secondary" id="previous-page"><</button>
+                    <span class="page-number" id="page-number"></span>
+                    <button class="btn btn-outline-secondary" id="next-page">></button>
                 </div>
             </div>
             <div class="wrap-right col-lg-5 col-md-12">

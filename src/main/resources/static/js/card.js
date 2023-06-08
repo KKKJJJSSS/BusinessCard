@@ -119,4 +119,32 @@ document.addEventListener('DOMContentLoaded', () => {
     updatePageNumber();
 });
 
+// 체크 박스 삭제
+const deleteSelectedBtn = document.querySelector('#delete-selected-btn');
+deleteSelectedBtn.addEventListener('click', async function() {
+    const checkedItems = document.querySelectorAll('.toggle-check:checked');
+    if (checkedItems.length === 0) {
+        alert('Please select at least one item to delete.');
+        return;
+    }
 
+    for (const checkedItem of checkedItems) {
+        const id = checkedItem.getAttribute('data-id');
+        const deleteResponse = await fetch(`/card/delete/${id}`, {method: 'DELETE'});
+
+        if (deleteResponse.ok) {
+            // 삭제가 성공적으로 완료된 경우, 체크된 item이 포함된 card-box를 삭제합니다.
+            deleteItem(id);
+            location.reload(); // 페이지 새로고침
+        } else {
+            console.error(`Failed to delete item with id: ${id}`);
+        }
+    }
+});
+
+function deleteItem(id) {
+    const item = document.querySelector(`.card-box[data-id="${id}"]`);
+    if (item) {
+        item.remove();
+    }
+}
