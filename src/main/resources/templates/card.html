@@ -57,8 +57,9 @@
                     <button class="btn btn-outline-secondary" id="next-page">></button>
                 </div>
             </div>
-            <div class="wrap-right col-lg-5 col-md-12">
+            <div class="wrap-right col-lg-5 col-md-12" th:each="card : ${cardList}">
                 <div class="card-add">
+                    <a class="btn btn-secondary" th:href="@{/reupload(id=${card.id})}">편집</a>
                     <a class="btn btn-secondary" href=/uploadcard>명함 등록</a>
                 </div>
                 <div class="row">

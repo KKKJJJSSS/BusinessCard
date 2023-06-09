@@ -5,12 +5,10 @@ import com.example.BusinessCard.Mapper.CardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -29,6 +27,20 @@ public class CardController {
 
         if (isInputValid(card)) {
             cardMapper.insertCard(card);
+            response.put("result", "success");
+        } else {
+            response.put("result", "이름을 필수로 입력 해주세요.");
+        }
+
+        return response;
+    }
+
+    @PostMapping("/reupload")
+    public Map<String, String> retouch(@RequestBody CardDto card) {
+        Map<String, String> response = new HashMap<>();
+
+        if (isInputValid(card)) {
+            cardMapper.updateCard(card);
             response.put("result", "success");
         } else {
             response.put("result", "이름을 필수로 입력 해주세요.");

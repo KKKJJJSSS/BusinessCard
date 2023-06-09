@@ -16,4 +16,9 @@ public interface CardMapper {
 
     @Delete("DELETE FROM business_card WHERE id = #{id}")
     Integer deleteCard(@Param("id") int id);
+
+    @Update("UPDATE business_card SET name=#{name}, department=#{department}, position=#{position}," +
+            "company_name=#{company_name}, email=#{email}, phone_number=#{phone_number}, address=#{address}," +
+            "number=#{number}, fax=#{fax}, memo=#{memo} WHERE id=#{id}")
+    void updateCard(CardDto card);
 }

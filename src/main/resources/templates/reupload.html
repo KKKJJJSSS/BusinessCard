@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="" name="description">
+  <meta content="Mark Otto, Jacob Thornton, and Bootstrap contributors" name="author">
+  <meta content="Hugo 0.104.2" name="generator">
+  <title>CardMate - 간편한 명함 관리</title>
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.rtl.min.css"
+        integrity="sha384-DOXMLfHhQkvFFp+rWTZwVlPVqdIhpDVYT9csOnHSgWQWPX0v5MCGtjCJbY6ERspU" rel="stylesheet">
+  <script crossorigin="anonymous"
+          integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="../static/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link href="../static/css/uploadcard.css" rel="stylesheet" type="text/css"/>
+  <script src="../static/js/navbar.js" th:src="@{/static/js/navbar.js}" type="text/javascript"></script>
+</head>
+<body>
+<header>
+  <div th:replace="./navbar.html"></div>
+</header>
+<main>
+  <div class="container-fluid">
+    <div class="main-wrap">
+      <div id="root">
+        <div class="contents" th:each="card : ${cardList}"
+        th:if="${card.id} == ${id}">
+          <form action="/card/reupload" class="upload-box" id="reuploadForm" method="POST">
+            <hr>
+            <div class="table row">
+                <input id="id" name="id" type="hidden" th:value="${id}">
+              <div class="label mb-3 col">
+                <label class="form-label" for="name">이름</label>
+                <input class="form-control" id="name" name="name" placeholder="이름 입력"
+                       type="text" th:value="${card.name}">
+              </div>
+              <div class="label mb-3 col">
+                <label class="form-label" for="department">부서</label>
+                <input class="form-control" id="department" name="department" placeholder="부서명 입력"
+                       type="text" th:value="${card.department}">
+              </div>
+            </div>
+            <div class="table row">
+              <div class="label mb-3 col">
+                <label class="form-label" for="position">직책</label>
+                <input class="form-control" id="position" name="position" placeholder="직책 입력"
+                       type="text" th:value="${card.position}">
+              </div>
+              <div class="label mb-3 col">
+                <label class="form-label" for="company_name">회사</label>
+                <input class="form-control" id="company_name" name="company_name" placeholder="회사명 입력"
+                       type="text" th:value="${card.company_name}">
+              </div>
+              <hr>
+            </div>
+            <div class="table row">
+              <div class="label mb-3 col">
+                <label class="form-label" for="email">이메일</label>
+                <input class="form-control" id="email" name="email" placeholder="이메일 주소 입력"
+                       type="email" th:value="${card.email}">
+              </div>
+              <div class="label mb-3 col">
+                <label class="form-label" for="address">주소</label>
+                <input class="form-control" id="address" name="address" placeholder="주소 입력"
+                       type="text" th:value="${card.address}">
+              </div>
+            </div>
+            <div class="table row">
+              <div class="label mb-3 col">
+                <label class="form-label" for="phone_number">휴대폰</label>
+                <input class="form-control" id="phone_number" name="phone_number" placeholder="휴대폰 번호 입력"
+                       type="number" th:value="${card.phone_number}">
+              </div>
+              <div class="label mb-3 col">
+                <label class="form-label" for="number">유선전화</label>
+                <input class="form-control" id="number" name="number" placeholder="유선전화 번호 입력"
+                       type="number" th:value="${card.number}">
+              </div>
+            </div>
+            <div class="table row">
+              <div class="label mb-3 col">
+                <label class="form-label" for="fax">팩스</label>
+                <input class="form-control" id="fax" name="fax" placeholder="팩스 번호 입력"
+                       type="number" th:value="${card.fax}">
+              </div>
+              <div class="label mb-3 col">
+                <label class="form-label" for="memo">메모</label>
+                <input class="form-control" id="memo" name="memo" placeholder="메모 입력"
+                       type="text" th:value="${card.memo}">
+              </div>
+            </div>
+            <div class="upload-box">
+              <input class="submit" type="submit" value="저장">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>
+  <div th:replace="./footer.html"></div>
+</footer>
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    updateNavbar();
+  });
+</script>
+<!--<script src="../static/js/uploadcard.js"></script>-->
+<script src="../static/js/reupload.js"></script>
+
+</body>
+</html>

@@ -137,7 +137,7 @@ deleteSelectedBtn.addEventListener('click', async function() {
             deleteItem(id);
             location.reload(); // 페이지 새로고침
         } else {
-            console.error(`Failed to delete item with id: ${id}`);
+            console.error(`삭제를 실패 했습니다.`);
         }
     }
 });

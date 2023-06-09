@@ -1,11 +1,11 @@
 const container = document.getElementById("container");
-document.getElementById("uploadForm").addEventListener("submit", async (e) => {
+document.getElementById("reuploadForm").addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
 
-    const response = await fetch("/card/upload", {
+    const response = await fetch("/card/reupload", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
