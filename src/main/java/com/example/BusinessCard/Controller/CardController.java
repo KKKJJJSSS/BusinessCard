@@ -59,11 +59,16 @@ public class CardController {
                 }
                 String fileName = System.currentTimeMillis() + "_" + UUID.randomUUID() + fileExtension;
 
-                String uploadsPath = "./build/resources/main/static/image/card/";
+                // uploads 디렉토리 생성 및 경로 설정 (루트 디렉터리가 아닌, 현재 디렉터리에 uploads 폴더를 생성합니다.)
+                String uploadsPath = new File("./uploads").getCanonicalPath();
                 File uploadsDir = new File(uploadsPath);
 
+                if (!uploadsDir.exists()) {
+                    uploadsDir.mkdirs();
+                }
+
                 // 파일 저장 경로 설정
-                Path path = Paths.get(uploadsDir.getAbsolutePath() + "/" + fileName);
+                Path path = Paths.get(uploadsDir.getAbsolutePath(), fileName);
                 Files.write(path, bytes);
 
                 card.setImage(fileName);
@@ -111,7 +116,7 @@ public class CardController {
 
                 // 기존 이미지가 있다면 삭제합니다.
                 if (oldImagePath != null && !oldImagePath.isEmpty()) {
-                    Path oldPath = Paths.get("/static/image/card/" + oldImagePath);
+                    Path oldPath = Paths.get("./uploads/" + oldImagePath);
                     Files.deleteIfExists(oldPath);
                 }
 
@@ -123,7 +128,8 @@ public class CardController {
                 }
                 String fileName = System.currentTimeMillis() + "_" + UUID.randomUUID() + fileExtension;
 
-                String uploadsPath = "./build/resources/main/static/image/card";
+                // uploads 디렉토리 생성 및 경로 설정 (루트 디렉터리가 아닌, 현재 디렉터리에 uploads 폴더를 생성합니다.)
+                String uploadsPath = "./uploads";
                 File uploadsDir = new File(uploadsPath);
 
                 // 파일 저장 경로 설정
@@ -159,7 +165,7 @@ public class CardController {
     @DeleteMapping("/file/delete")
     public ResponseEntity<?> deleteImageFile(@RequestParam("imagePath") String imagePath) {
         try {
-            String uploadsPath = "./build/resources/main/static/image/card";
+            String uploadsPath = "./uploads";
             File uploadsDir = new File(uploadsPath, imagePath);
 
             if (uploadsDir.exists() && uploadsDir.delete()) {
