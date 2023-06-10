@@ -51,4 +51,22 @@ public class UserController {
 
         return response;
     }
+
+    @PostMapping("/search")
+    public Map<String, Object> search(@RequestBody UserDto user) {
+        Map<String, Object> response = new HashMap<>();
+
+        UserDto foundNumber = userMapper.findByNumber(user);
+
+        if (foundNumber != null && String.valueOf(foundNumber.getNumber()).equals(String.valueOf(user.getNumber()))) {
+            response.put("result", "success");
+            response.put("username", foundNumber.getUsername()); // username 값을 응답에 추가합니다.
+            response.put("password", foundNumber.getPassword()); // password 값을 응답에 추가합니다.
+
+        } else {
+            response.put("result", "fail");
+        }
+
+        return response;
+    }
 }

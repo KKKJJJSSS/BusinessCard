@@ -2,16 +2,55 @@ html, main {
     background: #eaeaea;
 }
 
-.main-wrap {
-    margin-top: 6rem;
+html, body {
+    height: 105%;
+}
+
+body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+a:link {
+    color: black!important;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: black!important;
 }
 
 #root {
     width: 100%;
     margin: 0 auto;
     max-width: 800px;
+}
+
+.main-wrap {
+    margin-top: 6rem;
+    display: flex;
+    justify-content: center;
+}
+
+.wrap {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 6rem;
+}
+
+.result {
+    margin-top: 1.5rem;
+}
+
+.login-box {
+    text-align: center;
 }
 
 .contents {

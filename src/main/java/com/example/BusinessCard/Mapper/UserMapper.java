@@ -22,4 +22,8 @@ public interface UserMapper {
 
     @Select("SELECT COUNT(*) FROM users WHERE number = #{number}")
     int countByNumber(String number);
+
+    @Select("SELECT * FROM users WHERE number = #{number}")
+    UserDto findByNumber(UserDto userDto);
+
 }

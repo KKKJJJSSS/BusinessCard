@@ -1,15 +1,11 @@
 package com.example.BusinessCard.Controller;
 
-import com.example.BusinessCard.Dto.CardDto;
 import com.example.BusinessCard.Mapper.CardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 @Controller
 public class MainController {
@@ -24,9 +20,9 @@ public class MainController {
     public String login() {
         return "login";
     }
-    @GetMapping("/idsearch")
-    public String idsearch() {
-        return "idsearch";
+    @GetMapping("/search")
+    public String search() {
+        return "search";
     }
     @GetMapping("/uploadcard")
     public String uploadcard(HttpSession session) {

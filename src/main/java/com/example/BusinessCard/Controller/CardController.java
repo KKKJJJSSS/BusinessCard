@@ -36,7 +36,7 @@ public class CardController {
     }
 
     @PostMapping("/reupload")
-    public Map<String, String> retouch(@RequestBody CardDto card) {
+    public Map<String, String> reupload(@RequestBody CardDto card) {
         Map<String, String> response = new HashMap<>();
 
         if (isInputValid(card)) {

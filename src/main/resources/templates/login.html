@@ -17,51 +17,54 @@
     <div th:replace="./navbar.html"></div>
 </header>
 <main>
-    <div id="container" class="container">
+    <div class="container" id="container">
         <div class="row">
             <div class="col align-items-center flex-col sign-up">
                 <div class="form-wrapper align-items-center">
-                    <form id="registerForm" action="/auth/register" method="POST" class="form sign-up">
+                    <form action="/auth/register" class="form sign-up" id="registerForm" method="POST">
                         <div class="input-group">
                             <i class='bx bxs-user'></i>
-                            <input type="text" name="username" placeholder="사용자 이름" required>
+                            <input name="username" placeholder="사용자 이름" required type="text">
                         </div>
                         <div class="input-group">
                             <i class='bx bx-mail-send'></i>
-                            <input type="email" name="email" placeholder="이메일" required>
+                            <input name="email" placeholder="이메일" required type="email">
                         </div>
                         <div class="input-group">
                             <i class='bx bxs-lock-alt'></i>
-                            <input type="password" name="password" placeholder="비밀번호" required>
+                            <input name="password" placeholder="비밀번호" required type="password">
                         </div>
                         <div class="input-group">
                             <i class='bx bxs-number'></i>
-                            <input type="number" name="number" placeholder="휴대폰 번호" required>
+                            <input name="number" placeholder="휴대폰 번호" required type="number">
                         </div>
                         <button type="submit">회원가입</button>
                         <p>
                             <span>계정이 있으신가요?</span>
-                            <b onclick="toggle()" class="pointer">로그인하기</b>
+                            <b class="pointer" onclick="toggle()">로그인하기</b>
                         </p>
                     </form>
                 </div>
             </div>
             <div class="col align-items-center flex-col sign-in">
                 <div class="form-wrapper align-items-center">
-                    <form id="loginForm" action="/auth/login" method="POST" class="form sign-in">
+                    <form action="/auth/login" class="form sign-in" id="loginForm" method="POST">
                         <div class="input-group">
                             <i class='bx bxs-user'></i>
-                            <input type="text" name="username" placeholder="사용자 이름" required>
+                            <input name="username" placeholder="사용자 이름" required type="text">
                         </div>
                         <div class="input-group">
                             <i class='bx bxs-lock-alt'></i>
-                            <input type="password" name="password" placeholder="비밀번호" required>
+                            <input name="password" placeholder="비밀번호" required type="password">
                         </div>
                         <button type="submit">로그인</button>
-                        <p><b>비밀번호를 잊으셨나요?</b></p>
+                        <p>
+                            <span>계정이 기억나지 않나요?</span>
+                            <a href="./search">계정 찾기</a>
+                        </p>
                         <p>
                             <span>계정이 없으신가요?</span>
-                            <b onclick="toggle()" class="pointer">회원가입하기</b>
+                            <b class="pointer" onclick="toggle()">회원가입하기</b>
                         </p>
                     </form>
                 </div>

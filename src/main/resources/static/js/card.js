@@ -41,7 +41,7 @@ function displaySelectedInfo(element) {
 document.addEventListener('DOMContentLoaded', () => {
     const checkboxes = document.querySelectorAll('.toggle-check');
     for (const checkbox of checkboxes) {
-        checkbox.addEventListener('change', function() {
+        checkbox.addEventListener('change', function () {
             displaySelectedInfo(this);
         });
     }
@@ -121,10 +121,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 체크 박스 삭제
 const deleteSelectedBtn = document.querySelector('#delete-selected-btn');
-deleteSelectedBtn.addEventListener('click', async function() {
+deleteSelectedBtn.addEventListener('click', async function () {
     const checkedItems = document.querySelectorAll('.toggle-check:checked');
     if (checkedItems.length === 0) {
-        alert('Please select at least one item to delete.');
+        alert('명함을 체크해주세요.');
         return;
     }
 
@@ -148,3 +148,23 @@ function deleteItem(id) {
         item.remove();
     }
 }
+
+// 체크 박스 편집
+const updateSelectedBtn = document.querySelector('#update-selected-btn');
+updateSelectedBtn.addEventListener('click', async function () {
+    const checkedItems = document.querySelectorAll('.toggle-check:checked');
+    if (checkedItems.length === 0) {
+        alert('명함을 체크해 주세요.');
+        return;
+    }
+
+    for (const checkedItem of checkedItems) {
+        const id = checkedItem.getAttribute('data-id');
+
+        if (id != null) {
+            location.href="/reupload?id=" + id;
+        } else {
+            console.error(`명함을 체크해 주세요.`);
+        }
+    }
+});
