@@ -16,6 +16,6 @@ public class CardDto {
     private String number;
     private String fax;
     private String memo ;
-    private String card_image;
+    private String image;
     private String created_at;
 }

@@ -24,9 +24,10 @@ document.getElementById("registerForm").addEventListener("submit", async (e) => 
     if (response.ok) {
         const result = await response.json();
         if (result.result === "success") {
-            window.location.href = "/"; // 회원가입 성공시 이동할 페이지
+            window.location.href = "/loginpage"; // 회원가입 성공시 이동할 페이지
         } else {
             alert("회원가입에 실패했습니다.");
+
         }
     } else {
         alert("회원가입에 실패했습니다.");

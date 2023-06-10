@@ -25,7 +25,7 @@
         <div class="main-wrap">
             <div id="root">
                 <div class="contents">
-                    <form action="/card/upload" class="upload-box" id="uploadForm" method="POST">
+                    <form action="/card/upload" class="upload-box" id="uploadForm" method="POST" enctype="multipart/form-data">
                         <hr>
                         <div class="table row">
                             <div class="label mb-3 col">
@@ -80,6 +80,12 @@
                                 <input class="form-control" id="fax" name="fax" placeholder="팩스 번호 입력" type="number">
                             </div>
                             <div class="label mb-3 col">
+                                <label class="form-label" for="image">이미지 업로드</label>
+                                <input class="form-control" id="image" name="image" type="file" accept="image/*">
+                            </div>
+                        </div>
+                        <div class="table row">
+                            <div class="label mb-3 col">
                                 <label class="form-label" for="memo">메모</label>
                                 <input class="form-control" id="memo" name="memo" placeholder="메모 입력" type="text">
                             </div>
@@ -102,7 +108,6 @@
         updateNavbar();
     });
 </script>
-<!--<script src="../static/js/uploadcard.js"></script>-->
 <script src="../static/js/upload.js"></script>
 
 </body>

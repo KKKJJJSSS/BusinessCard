@@ -3,12 +3,9 @@ document.getElementById("uploadForm").addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
-
     const response = await fetch("/card/upload", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: formData,
     });
 
     if (response.ok) {
@@ -22,4 +19,3 @@ document.getElementById("uploadForm").addEventListener("submit", async (e) => {
         alert("이름을 필수로 입력 해주세요.");
     }
 });
-

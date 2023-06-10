@@ -1,8 +1,6 @@
 // 체크 박스 설정
 $(document).ready(function () {
-    $(".wrap-right").hide();
-    $(".wrap-right:first").show();
-    $(".toggle-check:first").prop("checked", true);
+    $(".wrap-right").show();
 
     $(".toggle-check").click(function () {
         if (!$(this).is(":checked")) {
@@ -36,6 +34,16 @@ function displaySelectedInfo(element) {
     document.getElementById('display-address').textContent = data.address;
     document.getElementById('display-created-at').textContent = data.createdAt;
     document.getElementById('display-memo').textContent = data.memo;
+
+    // 이미지 처리 부분
+    let displayImage = document.getElementById('display-image');
+    let imageURL = "/uploads/" + data.image;
+
+    if (data.image === '' || data.image === undefined) {
+        imageURL = '/static/image/card.png';
+    }
+
+    displayImage.src = imageURL;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -44,12 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
         checkbox.addEventListener('change', function () {
             displaySelectedInfo(this);
         });
-    }
-
-    const firstCheckbox = document.querySelector('.toggle-check');
-    if (firstCheckbox) {
-        firstCheckbox.checked = true;
-        displaySelectedInfo(firstCheckbox);
     }
 });
 
@@ -130,14 +132,21 @@ deleteSelectedBtn.addEventListener('click', async function () {
 
     for (const checkedItem of checkedItems) {
         const id = checkedItem.getAttribute('data-id');
+        const imagePath = checkedItem.getAttribute('data-image-path');
         const deleteResponse = await fetch(`/card/delete/${id}`, {method: 'DELETE'});
 
         if (deleteResponse.ok) {
             // 삭제가 성공적으로 완료된 경우, 체크된 item이 포함된 card-box를 삭제합니다.
+            try {
+                await deleteItemImage(imagePath); // 이미지 파일 삭제
+            } catch (error) {
+                console.error(`이미지 삭제를 실패했습니다.`);
+            }
+
             deleteItem(id);
             location.reload(); // 페이지 새로고침
         } else {
-            console.error(`삭제를 실패 했습니다.`);
+            console.error(`삭제를 실패했습니다.`);
         }
     }
 });
@@ -146,6 +155,13 @@ function deleteItem(id) {
     const item = document.querySelector(`.card-box[data-id="${id}"]`);
     if (item) {
         item.remove();
+    }
+}
+
+async function deleteItemImage(imagePath) {
+    const response = await fetch(`/card/file/delete?imagePath=${imagePath}`, {method: 'DELETE'});
+    if (!response.ok) {
+        throw new Error('이미지 삭제를 실패했습니다.');
     }
 }
 

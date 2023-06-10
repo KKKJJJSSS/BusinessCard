@@ -18,6 +18,7 @@ public class BoardController {
 
     @Autowired
     HttpSession httpSession;
+
     @GetMapping("/board")
     public String getBoard(HttpSession session, Model model) {
         List<CardDto> cardList = cardMapper.getCardList();
@@ -32,6 +33,7 @@ public class BoardController {
 
         return "card";
     }
+
     @GetMapping("/reupload")
     public String getRetouch(HttpSession session, Model model, @RequestParam("id") int id) {
         List<CardDto> cardList = cardMapper.getCardList();
@@ -46,5 +48,16 @@ public class BoardController {
         model.addAttribute("id", id);
 
         return "reupload";
+    }
+
+    @GetMapping("/uploadcard")
+    public String uploadcard(HttpSession session) {
+        String username = (String) session.getAttribute("username");
+
+        if (username == null) {
+            return "login";
+        }
+
+        return "uploadcard";
     }
 }

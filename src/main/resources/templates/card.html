@@ -37,9 +37,10 @@
                                        th:data-company-name="${card.company_name}"
                                        th:data-created-at="${card.created_at}" th:data-department="${card.department}"
                                        th:data-email="${card.email}" th:data-fax="${card.fax}" th:data-id="${card.id}"
-                                       th:data-memo="${card.memo}" th:data-name="${card.name}"
-                                       th:data-number="${card.number}" th:data-phone-number="${card.phone_number}"
-                                       th:data-position="${card.position}" th:onclick="displaySelectedInfo(this)"
+                                       th:data-image="${card.image}" th:data-memo="${card.memo}"
+                                       th:data-name="${card.name}" th:data-number="${card.number}"
+                                       th:data-phone-number="${card.phone_number}" th:data-position="${card.position}"
+                                       th:data-image-path="${card.image}" th:onclick="displaySelectedInfo(this)"
                                        type="checkbox">
                                 <div class="content">
                                     <p th:text="${card.name}"></p>
@@ -57,69 +58,66 @@
                     <button class="btn btn-outline-secondary" id="next-page">></button>
                 </div>
             </div>
-            <div class="wrap-right col-lg-5 col-md-12" th:each="card : ${cardList}">
+            <div class="wrap-right col-lg-5 col-md-12">
                 <div class="card-add">
                     <a class="btn btn-secondary" id="update-selected-btn">편집</a>
                     <a class="btn btn-secondary" href=/uploadcard>명함 등록</a>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="card-box row">
                         <hr>
-                        <div class="card-box row">
+                        <div class="col">
                             <p class="card-text">이름</p>
                             <p id="display-name"></p>
-                        </div>
-                        <hr>
-                        <div class="card-box row">
                             <p class="card-text">직책/부서</p>
                             <p id="display-position-department"></p>
-                        </div>
-                        <hr>
-                        <div class="card-box row">
                             <p class="card-text">회사</p>
                             <p id="display-company-name"></p>
                         </div>
-                        <hr>
-                        <div class="card-box row">
-                            <p class="card-text">이메일</p>
-                            <p id="display-email"></p>
+                        <div class="col">
+                            <div class="card-box row">
+                                <img class="display-image" id="display-image"/>
+                            </div>
                         </div>
+                    </div>
+
+                    <div class="card-box row">
                         <hr>
-                        <div class="card-box row">
+                        <div class="col">
+                            <p class="card-text">휴대폰</p>
+                            <p id="display-phone-number"></p>
+                        </div>
+                        <div class="col">
                             <p class="card-text">주소</p>
                             <p id="display-address"></p>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="card-box row">
                         <hr>
-                        <div class="card-box row">
-                            <p class="card-text">휴대폰</p>
-                            <p id="display-phone-number"></p>
-                        </div>
-                        <hr>
-                        <div class="card-box row">
+                        <div class="col">
                             <p class="card-text">유선전화</p>
                             <p id="display-number"></p>
                         </div>
+                        <div class="col">
+                            <p class="card-text">이메일</p>
+                            <p id="display-email"></p>
+                        </div>
+                    </div>
+                    <div class="card-box row">
                         <hr>
-                        <div class="card-box row">
+                        <div class="col">
                             <p class="card-text">팩스</p>
                             <p id="display-fax"></p>
                         </div>
-                        <hr>
-                        <div class="card-box row">
+                        <div class="col">
                             <p class="card-text">등록일</p>
                             <p id="display-created-at"></p>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col">
+                    <div class="card-box row">
                         <hr>
-                        <div class="card-box row">
-                            <p class="card-text">메모</p>
-                            <p id="display-memo"></p>
-                        </div>
+                        <p class="card-text">메모</p>
+                        <p id="display-memo"></p>
                     </div>
                 </div>
             </div>
