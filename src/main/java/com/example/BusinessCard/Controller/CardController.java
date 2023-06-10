@@ -57,7 +57,7 @@ public class CardController {
                 if (originalFilename.lastIndexOf(".") != -1) {
                     fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));
                 }
-                String fileName = System.currentTimeMillis() + "_" + UUID.randomUUID().toString() + fileExtension;
+                String fileName = System.currentTimeMillis() + "_" + UUID.randomUUID() + fileExtension;
 
                 String uploadsPath = "/static/image/card";
                 File uploadsDir = new File(uploadsPath);
@@ -121,7 +121,7 @@ public class CardController {
                 if (originalFilename.lastIndexOf(".") != -1) {
                     fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));
                 }
-                String fileName = System.currentTimeMillis() + "_" + UUID.randomUUID().toString() + fileExtension;
+                String fileName = System.currentTimeMillis() + "_" + UUID.randomUUID() + fileExtension;
 
                 String uploadsPath = "/static/image/card";
                 File uploadsDir = new File(uploadsPath);
