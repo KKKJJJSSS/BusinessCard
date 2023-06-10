@@ -1,7 +1,7 @@
 // 체크 박스 설정
 $(document).ready(function () {
-    $(".wrap-right").show();
-
+    $(".wrap-right").hide();
+    $(".wrap-right:first").show();
     $(".toggle-check").click(function () {
         if (!$(this).is(":checked")) {
             $(this).prop("checked", true);
@@ -37,7 +37,7 @@ function displaySelectedInfo(element) {
 
     // 이미지 처리 부분
     let displayImage = document.getElementById('display-image');
-    let imageURL = "/static/image/card/" + data.image;
+    let imageURL = "/build/resources/main/static/image/card/" + data.image;
 
     if (data.image === '' || data.image === undefined) {
         imageURL = '/static/image/card.png';
@@ -140,13 +140,13 @@ deleteSelectedBtn.addEventListener('click', async function () {
             try {
                 await deleteItemImage(imagePath); // 이미지 파일 삭제
             } catch (error) {
-                console.error(`이미지 삭제를 실패했습니다.`);
+                console.error(`이미지 삭제를 실패 했습니다.`);
             }
 
             deleteItem(id);
             location.reload(); // 페이지 새로고침
         } else {
-            console.error(`삭제를 실패했습니다.`);
+            console.error(`삭제를 실패 했습니다.`);
         }
     }
 });
@@ -159,9 +159,9 @@ function deleteItem(id) {
 }
 
 async function deleteItemImage(imagePath) {
-    const response = await fetch(`/card/file/delete?imagePath=${imagePath}`, {method: 'DELETE'});
+    const response = await fetch(`/file/delete?imagePath=${imagePath}`, {method: 'DELETE'});
     if (!response.ok) {
-        throw new Error('이미지 삭제를 실패했습니다.');
+        throw new Error('이미지 삭제를 실패 했습니다.');
     }
 }
 

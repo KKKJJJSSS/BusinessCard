@@ -59,7 +59,7 @@ public class CardController {
                 }
                 String fileName = System.currentTimeMillis() + "_" + UUID.randomUUID() + fileExtension;
 
-                String uploadsPath = "/static/image/card";
+                String uploadsPath = "./build/resources/main/static/image/card/";
                 File uploadsDir = new File(uploadsPath);
 
                 // 파일 저장 경로 설정
@@ -111,7 +111,7 @@ public class CardController {
 
                 // 기존 이미지가 있다면 삭제합니다.
                 if (oldImagePath != null && !oldImagePath.isEmpty()) {
-                    Path oldPath = Paths.get("/static/image/card/" + oldImagePath);
+                    Path oldPath = Paths.get("/build/resources/main/static/image/card/" + oldImagePath);
                     Files.deleteIfExists(oldPath);
                 }
 
@@ -123,7 +123,7 @@ public class CardController {
                 }
                 String fileName = System.currentTimeMillis() + "_" + UUID.randomUUID() + fileExtension;
 
-                String uploadsPath = "/static/image/card";
+                String uploadsPath = "./build/resources/main/static/image/card";
                 File uploadsDir = new File(uploadsPath);
 
                 // 파일 저장 경로 설정
@@ -159,7 +159,7 @@ public class CardController {
     @DeleteMapping("/file/delete")
     public ResponseEntity<?> deleteImageFile(@RequestParam("imagePath") String imagePath) {
         try {
-            String uploadsPath = "/static/image/card";
+            String uploadsPath = "./build/resources/main/static/image/card";
             File uploadsDir = new File(uploadsPath, imagePath);
 
             if (uploadsDir.exists() && uploadsDir.delete()) {
