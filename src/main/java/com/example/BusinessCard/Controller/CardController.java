@@ -111,7 +111,7 @@ public class CardController {
 
                 // 기존 이미지가 있다면 삭제합니다.
                 if (oldImagePath != null && !oldImagePath.isEmpty()) {
-                    Path oldPath = Paths.get("/build/resources/main/static/image/card/" + oldImagePath);
+                    Path oldPath = Paths.get("/static/image/card/" + oldImagePath);
                     Files.deleteIfExists(oldPath);
                 }
 

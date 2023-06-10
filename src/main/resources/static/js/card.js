@@ -37,7 +37,7 @@ function displaySelectedInfo(element) {
 
     // 이미지 처리 부분
     let displayImage = document.getElementById('display-image');
-    let imageURL = "/build/resources/main/static/image/card/" + data.image;
+    let imageURL = "/static/image/card/" + data.image;
 
     if (data.image === '' || data.image === undefined) {
         imageURL = '/static/image/card.png';
