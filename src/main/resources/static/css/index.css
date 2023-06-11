@@ -182,13 +182,13 @@ h2 {
     align-items: center;
 }
 
-.mobile-box p {
-    margin-right: 1rem;
+.mobile-img {
+    margin-left: 3rem;
 }
 
 .mobile-box .img-thumbnail {
     height: 450px!important;
-    width: 70%;
+    width: 100%;
 }
 
 /* 하단 카드 애니메이션 */
@@ -268,7 +268,9 @@ h2 {
     }
     .mobile-box .img-thumbnail {
         height: 250px!important;
-        width: 55%;
+    }
+    .mobile-img {
+        margin-left: 1rem;
     }
     .mobile-box p {
         font-size: 20px;
