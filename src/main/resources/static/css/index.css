@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
 h1 {
     font-size: 4rem!important;
     color: white;
@@ -12,6 +14,7 @@ h2 {
 .container {
     margin-top: 4rem!important;
 }
+
 .img-box-black {
     background: black;
     width: 650px;
@@ -33,6 +36,7 @@ h2 {
     justify-content:space-around;
 }
 
+/* 상단 카드 */
 /* 카드 회전 */
 .card {
     width: 650px;
@@ -70,8 +74,21 @@ h2 {
 
 .front img,
 .back img {
-    width: 90%;
-    height: auto;
+    width: 50%;
+    height: 100%;
+    margin: auto;
+}
+
+.card-back{
+    text-align: center;
+}
+
+.card-text {
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: white;
 }
 
 /* 앱 다운로드 알림창 */
@@ -85,7 +102,7 @@ h2 {
 .centered-box-tooltip {
     display: none;
     position: absolute;
-    bottom: 130%;
+    bottom: 100%;
     left: 50%;
     padding: 5px;
     z-index: 1;
@@ -103,14 +120,86 @@ h2 {
     display: block;
 }
 
-/* 하단 */
-.mobile-img {
-    height: 500px!important;
+/* 상단 카드 애니메이션 */
+.card h1 {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 3rem;
+    line-height: 0.75;
+}
+
+.card span:not(.light) {
+    opacity: 0;
+    animation: flashText 1s ease-out alternate infinite;
+}
+
+.card span.light {
+    position: relative;
+    display: inline-block;
+}
+.card span.light:before {
+    position: absolute;
+    left: 0;
+    top: -10%;
+    width: 100%;
+    height: 120%;
+    background: #ffffff;
+    filter: blur(30px);
+    content: "";
+    opacity: 0;
+    animation: flash 1s ease-out alternate infinite;
+}
+
+@keyframes flash {
+    to {
+        opacity: 1;
+    }
+}
+@keyframes flashText {
+    to {
+        opacity: 0.15;
+    }
+}
+
+/* 하단 카드 */
+.skill-box {
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
 }
 
 .img-thumbnail {
-    margin: 1rem;
-    width: 100px!important;
+    width: 90%;
+}
+
+.mobile-box {
+    display: flex;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    align-items: center;
+}
+
+.mobile-box p {
+    margin-right: 1rem;
+}
+
+.mobile-box .img-thumbnail {
+    height: 450px!important;
+    width: 70%;
+}
+
+/* 하단 카드 애니메이션 */
+.box {
+    width: 60%;
+    transition: .4s;
+    margin: 2rem auto;
+}
+
+.box.active {
+   width: 90%;
 }
 
 @media (min-width: 1400px) {
@@ -150,9 +239,6 @@ h2 {
     .icon-img {
         width: 400px;
     }
-    .mobile-img {
-        height: 400px;
-    }
 }
 
 @media screen and (max-width:960px) {
@@ -180,7 +266,21 @@ h2 {
     h1 {
         font-size: 30px!important;
     }
-    .mobile-img {
-        height: 200px!important;
+    .mobile-box .img-thumbnail {
+        height: 250px!important;
+        width: 55%;
+    }
+    .mobile-box p {
+        font-size: 20px;
+    }
+    .card-text {
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+    .skill-box {
+        font-size: 20px;
+    }
+    .box {
+        margin: 1rem auto;
     }
 }
