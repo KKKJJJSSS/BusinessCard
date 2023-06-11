@@ -32,7 +32,6 @@ html, main {
 
 .display-image {
     height: 200px;
-    width: 80%;
 }
 
 .wrap-right .card-box {
@@ -91,7 +90,7 @@ html, main {
         width: 80% !important;
     }
     .display-image {
-        height: 70px;
+        height: 140px;
     }
 }
 
