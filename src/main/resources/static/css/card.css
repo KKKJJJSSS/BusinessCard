@@ -92,6 +92,19 @@ html, main {
     .display-image {
         height: 140px;
     }
+    .name-and-position-department {
+        display: flex;
+        flex-direction: row;
+    }
+    .name {
+        width: 50%;
+    }
+    .position-department {
+        width: 50%;
+    }
+    .hr-none {
+        margin-top: 0 !important;
+    }
 }
 
 
