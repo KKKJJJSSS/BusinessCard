@@ -145,7 +145,7 @@ h2 {
     width: 100%;
     height: 120%;
     background: #ffffff;
-    filter: blur(30px);
+    filter: blur(20px);
     content: "";
     opacity: 0;
     animation: flash 1s ease-out alternate infinite;
