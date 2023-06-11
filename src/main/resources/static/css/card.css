@@ -40,7 +40,7 @@ html, main {
 }
 
 .card-text {
-    font-weight: bold;
+    color: gray;
 }
 
 .box-container {
