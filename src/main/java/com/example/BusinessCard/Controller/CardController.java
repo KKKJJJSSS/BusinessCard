@@ -166,7 +166,7 @@ public class CardController {
     public ResponseEntity<?> deleteImageFile(@RequestParam("imagePath") String imagePath) {
         try {
             String uploadsPath = "./uploads";
-            File uploadsDir = new File(uploadsPath, imagePath);
+            File uploadsDir = new File(uploadsPath + '/' + imagePath);
 
             if (uploadsDir.exists() && uploadsDir.delete()) {
                 return new ResponseEntity<>(HttpStatus.OK);

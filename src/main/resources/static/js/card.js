@@ -120,7 +120,7 @@ deleteSelectedBtn.addEventListener('click', async function () {
 
     for (const checkedItem of checkedItems) {
         const id = checkedItem.getAttribute('data-id');
-        const imagePath = checkedItem.getAttribute('data-image-path');
+        const imagePath = checkedItem.getAttribute('data-image');
         const deleteResponse = await fetch(`/card/delete/${id}`, {method: 'DELETE'});
 
         if (deleteResponse.ok) {
@@ -147,7 +147,7 @@ function deleteItem(id) {
 }
 
 async function deleteItemImage(imagePath) {
-    const response = await fetch(`/file/delete?imagePath=${imagePath}`, {method: 'DELETE'});
+    const response = await fetch(`/card/file/delete?imagePath=${imagePath}`, {method: 'DELETE'});
     if (!response.ok) {
         throw new Error('이미지 삭제를 실패 했습니다.');
     }
