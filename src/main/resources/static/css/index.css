@@ -44,7 +44,7 @@ h2 {
 /* 카드 회전 */
 .card {
     width: 650px;
-    height: 650px;
+    height: 650px!important;
     perspective: 1000px;
     cursor: pointer;
     border: none!important;
