@@ -202,27 +202,24 @@ h2 {
    width: 90%;
 }
 
-@media (min-width: 1400px) {
+@media (max-width: 1400px) {
     .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
         max-width: 1520px !important;
     }
-}
-
-@media (min-width: 1200px) {
     h2 {
         font-size: 20px!important;
     }
     .img-box-black {
-        width: 500px;
-        height: 500px;
+        width: 500px!important;
+        height: 500px!important;
     }
     .img-box-gold {
-        width: 500px;
-        height: 500px;
+        width: 500px!important;
+        height: 500px!important;
     }
     .card {
-        width: 500px;
-        height: 500px
+        width: 500px!important;
+        height: 500px!important;
     }
     .icon-img {
         width: 400px;
