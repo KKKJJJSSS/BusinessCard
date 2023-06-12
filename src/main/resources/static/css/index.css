@@ -15,10 +15,14 @@ h2 {
     margin-top: 4rem!important;
 }
 
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1520px !important;
+}
+
 .img-box-black {
     background: black;
-    width: 650px!important;
-    height: 650px!important;
+    width: 650px;
+    height: 650px;
     margin: 2rem auto 1rem;
     display: flex;
     align-items: center;
@@ -28,8 +32,8 @@ h2 {
 
 .img-box-gold {
     background: gold;
-    width: 650px!important;
-    height: 650px!important;
+    width: 650px;
+    height: 650px;
     margin: 2rem auto 1rem;
     display: flex;
     align-items: center;
@@ -39,8 +43,8 @@ h2 {
 /* 상단 카드 */
 /* 카드 회전 */
 .card {
-    width: 650px!important;
-    height: 650px!important;
+    width: 650px;
+    height: 650px;
     perspective: 1000px;
     cursor: pointer;
     border: none!important;
@@ -203,9 +207,6 @@ h2 {
 }
 
 @media (max-width: 1400px) {
-    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-        max-width: 1520px !important;
-    }
     h2 {
         font-size: 20px!important;
     }
