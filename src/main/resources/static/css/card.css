@@ -12,10 +12,6 @@ html, main {
     justify-content: center;
 }
 
-.pagination {
-    height: 20px;
-}
-
 .wrap-left,
 .wrap-right {
     border: solid 1px darkgray;
@@ -30,6 +26,10 @@ html, main {
     margin-bottom: 2rem;
     max-height: calc(3 * 190px);
     overflow-y: auto;
+}
+
+.wrap-left .btn-secondary {
+    margin-bottom: 1rem;
 }
 
 .wrap-top {
@@ -54,6 +54,7 @@ html, main {
     width: 50%;
     border-radius: 0.375rem;
     border: solid 1px darkgray;
+    background: #eaeaea;
 }
 
 .wrap-top .btn-secondary {

@@ -36,7 +36,7 @@
                 <div class="card-add">
                     <button class="btn btn-secondary" id="delete-selected-btn">삭제</button>
                 </div>
-                <div id="pagination-container" class="pagination">
+                <div id="pagination-container">
                     <div class="row">
                         <div class="card-box row" th:each="card : ${cardList}" th:if="${card.username} == ${username}">
                             <div class="box-container">

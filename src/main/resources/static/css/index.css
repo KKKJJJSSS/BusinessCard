@@ -13,6 +13,7 @@ h2 {
 
 .container {
     margin-top: 4rem!important;
+    margin-bottom: 1.5rem;
 }
 
 .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
