@@ -26,10 +26,7 @@ html, main {
     margin-bottom: 2rem;
     max-height: calc(3 * 190px);
     overflow-y: auto;
-}
-
-.wrap-left .btn-secondary {
-    margin-bottom: 1rem;
+    min-height: 70px;
 }
 
 .wrap-top {
