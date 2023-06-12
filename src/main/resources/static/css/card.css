@@ -78,9 +78,9 @@ html, main {
     margin-top: 1rem;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1400px) {
     .display-image {
-        height: 250px;
+        height: 130px;
     }
 }
 
