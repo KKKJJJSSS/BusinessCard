@@ -8,7 +8,7 @@ html, main {
 }
 
 .main-wrap {
-    margin-top: 6rem!important;
+    margin-top: 3.5rem!important;
     justify-content: center;
 }
 
@@ -24,9 +24,41 @@ html, main {
 
 .wrap-left {
     margin-bottom: 2rem;
+    max-height: calc(3 * 190px);
+    overflow-y: auto;
 }
 
-.card-box {
+.wrap-top {
+    width: 100%;
+    text-align: center;
+    margin: 1rem;
+    background: white;
+    border-bottom: solid 1px darkgray;
+    height: 55px;
+    display: flex;
+    align-items: center;
+}
+
+.wrap-top .top-box {
+    width: 20%;
+    position: absolute;
+    left: 17%;
+}
+
+.wrap-top .search {
+    margin-top: 0.5rem;
+    width: 50%;
+}
+
+.wrap-top .btn-secondary {
+    margin: auto auto 0.3rem;
+}
+
+.form-search {
+    display: flex;
+}
+
+.wrap-right .card-box {
     margin-top: 1rem!important;
 }
 
@@ -71,7 +103,7 @@ html, main {
 /* card-add */
 .card-add {
     text-align: right;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 .btn-secondary {
@@ -81,6 +113,9 @@ html, main {
 @media screen and (max-width: 1400px) {
     .display-image {
         height: 130px;
+    }
+    .top-box {
+        width: 100%;
     }
 }
 
@@ -104,6 +139,13 @@ html, main {
     }
     .hr-none {
         margin-top: 0 !important;
+    }
+    .top-box {
+        width: 100% !important;
+        left: 0 !important;
+    }
+    .main-wrap {
+        margin-top: 4rem!important;
     }
 }
 

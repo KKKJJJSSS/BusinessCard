@@ -1,17 +1,81 @@
-// 체크 박스 설정
+//체크박스, 검색, 스크롤
 $(document).ready(function () {
-    $(".wrap-right").hide();
-    $(".wrap-right:first").show();
-    $(".toggle-check").click(function () {
-        if (!$(this).is(":checked")) {
-            $(this).prop("checked", true);
-        } else {
-            $(".toggle-check").not(this).prop("checked", false);
-            $(this).parents(".main-row").siblings().find(".wrap-right").hide();
-            $(this).parents(".main-row").find(".wrap-right").show();
+    const searchInput = document.getElementById('search-input');
+    const searchButton = document.getElementById('search-button');
+
+    // 검색 버튼 이벤트 리스너
+    searchButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        updateDisplay(searchInput.value);
+        applyToggleCheck();
+        displayFirstCardBox();
+    });
+
+    // 검색 입력 중 Enter 키 이벤트 리스너
+    searchInput.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            updateDisplay(searchInput.value);
+            applyToggleCheck();
+            displayFirstCardBox();
         }
     });
+
+    // 체크박스 변경 이벤트 리스너 적용
+    function applyToggleCheck() {
+        $(".wrap-right").hide();
+        $(".wrap-right:first").show();
+        $(".toggle-check").off().click(function () {
+            if (!$(this).is(":checked")) {
+                $(this).prop("checked", true);
+            } else {
+                $(".toggle-check").not(this).prop("checked", false);
+                $(this).parents(".main-row").siblings().find(".wrap-right").hide();
+                $(this).parents(".main-row").find(".wrap-right").show();
+                displaySelectedInfo(this);
+            }
+        });
+    }
+
+    // 첫 번째 card-box만 표시
+    function displayFirstCardBox() {
+        $(".wrap-right .card-box").hide();
+        $(".wrap-right:first .card-box").show();
+    }
+
+    // 체크박스 변경 이벤트 리스너 적용 초기화
+    applyToggleCheck();
 });
+
+let currentKeyword = "";
+
+// 검색된 키워드를 사용하여 업데이트
+function updateDisplay(keyword) {
+    currentKeyword = keyword;
+    updateLeft();
+}
+
+// 키워드를 사용하여 wrap-left 내부의 card-box 표시 업데이트
+function updateLeft() {
+    const wrapLefts = document.querySelectorAll('.wrap-left');
+    wrapLefts.forEach(wrapLeft => {
+        const cards = wrapLeft.querySelectorAll('.card-box');
+        // 키워드가 있는 card만 가져오기
+        const filteredCards = cards.length && currentKeyword
+            ? Array.from(cards).filter(card => card.textContent.includes(currentKeyword))
+            : cards;
+
+        // 모든 card 숨기고 키워드와 일치하는 card만 표시
+        cards.forEach((card) => {
+            card.style.display = 'none';
+        });
+
+        filteredCards.forEach((card) => {
+            card.style.display = 'block';
+        });
+    });
+}
+
 
 function displaySelectedInfo(element) {
     const data = element.dataset;
@@ -35,7 +99,6 @@ function displaySelectedInfo(element) {
     document.getElementById('display-created-at').textContent = data.createdAt;
     document.getElementById('display-memo').textContent = data.memo;
 
-    // 이미지 처리 부분
     let displayImage = document.getElementById('display-image');
     let imageURL = "/uploads/" + data.image;
 
@@ -45,81 +108,6 @@ function displaySelectedInfo(element) {
 
     displayImage.src = imageURL;
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    const checkboxes = document.querySelectorAll('.toggle-check');
-    for (const checkbox of checkboxes) {
-        checkbox.addEventListener('change', function () {
-            displaySelectedInfo(this);
-        });
-    }
-});
-
-// 페이지 기능
-document.addEventListener('DOMContentLoaded', () => {
-    let currentPage = 1;
-    const numPerPage = 3;
-
-    const initPagination = () => {
-        const wrapLefts = document.querySelectorAll('.wrap-left');
-        wrapLefts.forEach(wrapLeft => {
-            const cards = wrapLeft.querySelectorAll('.card-box');
-            cards.forEach((card, index) => {
-                if (index < numPerPage) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    };
-
-    const updateLeft = () => {
-        const wrapLefts = document.querySelectorAll('.wrap-left');
-        wrapLefts.forEach(wrapLeft => {
-            const cards = wrapLeft.querySelectorAll('.card-box');
-            const start = (currentPage - 1) * numPerPage;
-            const end = start + numPerPage;
-            cards.forEach((card, index) => {
-                if (index >= start && index < end) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-
-        updatePageNumber();
-    };
-
-    const updatePageNumber = () => {
-        const pageNumberElement = document.getElementById('page-number');
-        pageNumberElement.textContent = currentPage;
-    };
-
-    document.getElementById('previous-page').addEventListener('click', () => {
-        currentPage--;
-        if (currentPage < 1) {
-            currentPage = 1;
-        }
-        updateLeft();
-    });
-
-    document.getElementById('next-page').addEventListener('click', () => {
-        currentPage++;
-        const totalRows = document.querySelectorAll('.wrap-left .card-box').length;
-        if (currentPage > Math.ceil(totalRows / numPerPage)) {
-            currentPage = Math.ceil(totalRows / numPerPage);
-        }
-        updateLeft();
-    });
-
-    // Pagination 초기화
-    initPagination();
-
-    // 페이지 로드 시 페이지 번호 업데이트
-    updatePageNumber();
-});
 
 // 체크 박스 삭제
 const deleteSelectedBtn = document.querySelector('#delete-selected-btn');
@@ -184,3 +172,4 @@ updateSelectedBtn.addEventListener('click', async function () {
         }
     }
 });
+

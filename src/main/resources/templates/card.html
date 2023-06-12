@@ -24,12 +24,20 @@
 <main>
     <div class="container-fluid">
         <div class="main-wrap row">
+            <div class="wrap-top">
+                <div class="top-box">
+                    <form>
+                        <input class="search" type="text" id="search-input" placeholder="명함 검색">
+                        <button class="btn btn-secondary" id="search-button">검색</button>
+                    </form>
+                </div>
+            </div>
             <div class="wrap-left col-lg-2 col-md-12">
                 <div class="card-add">
                     <button class="btn btn-secondary" id="delete-selected-btn">삭제</button>
                 </div>
                 <div id="pagination-container">
-                    <div class="-row">
+                    <div class="row">
                         <div class="card-box row" th:each="card : ${cardList}" th:if="${card.username} == ${username}">
                             <div class="box-container">
                                 <hr>
@@ -37,10 +45,10 @@
                                        th:data-company-name="${card.company_name}"
                                        th:data-created-at="${card.created_at}" th:data-department="${card.department}"
                                        th:data-email="${card.email}" th:data-fax="${card.fax}" th:data-id="${card.id}"
-                                       th:data-image="${card.image}" th:data-memo="${card.memo}"
-                                       th:data-name="${card.name}" th:data-number="${card.number}"
-                                       th:data-phone-number="${card.phone_number}" th:data-position="${card.position}"
-                                       th:data-image-path="${card.image}" th:onclick="displaySelectedInfo(this)"
+                                       th:data-image="${card.image}" th:data-image-path="${card.image}"
+                                       th:data-memo="${card.memo}" th:data-name="${card.name}"
+                                       th:data-number="${card.number}" th:data-phone-number="${card.phone_number}"
+                                       th:data-position="${card.position}" th:onclick="displaySelectedInfo(this)"
                                        type="checkbox">
                                 <div class="content">
                                     <p th:text="${card.name}"></p>
@@ -51,11 +59,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="d-flex justify-content-center mt-3" id="pagination-buttons">
-                    <button class="btn btn-outline-secondary" id="previous-page"><</button>
-                    <span class="page-number" id="page-number"></span>
-                    <button class="btn btn-outline-secondary" id="next-page">></button>
                 </div>
             </div>
             <div class="wrap-right col-lg-5 col-md-12">
@@ -86,7 +89,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="card-box row">
-                                <img class="display-image" id="display-image" />
+                                <img class="display-image" id="display-image"/>
                             </div>
                         </div>
                     </div>
