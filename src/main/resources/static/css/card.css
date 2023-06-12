@@ -12,6 +12,10 @@ html, main {
     justify-content: center;
 }
 
+.pagination {
+    height: 200px;
+}
+
 .wrap-left,
 .wrap-right {
     border: solid 1px darkgray;
