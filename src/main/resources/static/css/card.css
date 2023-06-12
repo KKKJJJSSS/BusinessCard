@@ -48,6 +48,8 @@ html, main {
 .wrap-top .search {
     margin-top: 0.5rem;
     width: 50%;
+    border-radius: 0.375rem;
+    border: solid 1px darkgray;
 }
 
 .wrap-top .btn-secondary {
