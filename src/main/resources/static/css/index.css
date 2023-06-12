@@ -194,7 +194,7 @@ h2 {
 /* 하단 카드 애니메이션 */
 .box {
     width: 60%;
-    transition: .4s;
+    transition: 1s;
     margin: 2rem auto;
 }
 
