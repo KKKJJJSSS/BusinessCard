@@ -124,6 +124,12 @@ html, main {
     .wrap-right {
         width: 80% !important;
     }
+    .wrap-left {
+        max-height: calc(3 * 80px);
+    }
+    .wrap-right .hr-none {
+        margin-top: 0 !important;
+    }
     .display-image {
         height: 140px;
     }
@@ -136,9 +142,6 @@ html, main {
     }
     .position-department {
         width: 50%;
-    }
-    .hr-none {
-        margin-top: 0 !important;
     }
     .top-box {
         width: 100% !important;
