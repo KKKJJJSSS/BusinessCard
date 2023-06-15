@@ -1,3 +1,15 @@
+document.querySelector("#registerBtn").addEventListener("click", function () {
+    document.querySelector("#myModal").style.display = "flex";
+});
+
+document.querySelector("#myModal").addEventListener("click", function () {
+    this.style.display = "none";
+});
+
+document.querySelector(".modal-content").addEventListener("click", function (event) {
+    event.stopPropagation();
+});
+
 //체크박스, 검색, 스크롤
 $(document).ready(function () {
     const searchInput = document.getElementById('search-input');

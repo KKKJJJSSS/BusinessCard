@@ -134,6 +134,12 @@ a:hover {
     margin-right: 10px;
 }
 
+.display-image {
+    height: 200px;
+    width: 45%;
+    margin: 0rem auto 1rem;
+}
+
 
 @media screen and (max-width: 768px) {
     .wrap {

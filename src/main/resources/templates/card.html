@@ -63,7 +63,15 @@
             <div class="wrap-right col-lg-5 col-md-12">
                 <div class="card-add">
                     <a class="btn btn-secondary" id="update-selected-btn">편집</a>
-                    <a class="btn btn-secondary" href=/uploadcard>명함 등록</a>
+                    <button class="btn btn-secondary" id="registerBtn">명함 등록</button>
+                    <div class="modal" id="myModal">
+                        <div class="modal-content">
+                            <div class="buttons">
+                                <a class="btn btn-secondary" href="./autoUpload">명함 자동 등록</a>
+                                <a class="btn btn-secondary" href="./uploadcard">직접 입력</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="card-box row">

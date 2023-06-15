@@ -15,7 +15,6 @@ public interface CardMapper {
             " #{image})")
     void insertCard(CardDto card);
 
-
     @Select("SELECT * FROM business_card")
     List<CardDto> getCardList();
 
@@ -32,4 +31,9 @@ public interface CardMapper {
 
     @Select("SELECT * FROM business_card WHERE id = #{id}")
     CardDto getCardById(@Param("id") int id);
+
+    @Insert("INSERT INTO business_card (phone_number, username, name, image, number, fax, department, position, address, email, company_name) VALUES " +
+            "(#{cardDto.phone_number}, #{cardDto.username}, #{cardDto.name}, #{cardDto.image}, #{cardDto.number}, " +
+            "#{cardDto.fax}, #{cardDto.department}, #{cardDto.position}, #{cardDto.address}, #{cardDto.email}, #{cardDto.company_name})")
+    void autoUpload(@Param("cardDto") CardDto cardDto);
 }

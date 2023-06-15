@@ -114,6 +114,34 @@ html, main {
     margin-top: 1rem;
 }
 
+/* 명함 등록 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 4px;
+    margin-top: -10%;
+    width: 30% !important;
+}
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+.btn-wrap {
+    position: relative;
+}
+
 @media screen and (max-width: 1400px) {
     .display-image {
         height: 130px;
@@ -153,6 +181,9 @@ html, main {
     }
     .main-wrap {
         margin-top: 4rem!important;
+    }
+    .modal-content {
+        width: 90% !important;
     }
 }
 

@@ -60,4 +60,15 @@ public class BoardController {
 
         return "uploadcard";
     }
+
+    @GetMapping("/autoUpload")
+    public String autoUpload(HttpSession session) {
+        String username = (String) session.getAttribute("username");
+
+        if (username == null) {
+            return "login";
+        }
+
+        return "autoUpload";
+    }
 }
