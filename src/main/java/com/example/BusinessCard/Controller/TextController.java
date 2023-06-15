@@ -4,12 +4,12 @@ import com.example.BusinessCard.Dto.CardDto;
 import com.example.BusinessCard.Mapper.CardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import com.google.cloud.vision.v1.*;
 import com.google.protobuf.ByteString;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpSession;
@@ -46,7 +46,7 @@ public class TextController {
     }
 
     @PostMapping("/autoUpload")
-    public String extractText(@RequestParam("file") MultipartFile file, Model model, HttpSession session) {
+    public String extractText(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttrs, HttpSession session) {
         processImage(session, file);
         String extractedText = (String) session.getAttribute("extractedText");
         String username = (String) session.getAttribute("username");
@@ -56,11 +56,13 @@ public class TextController {
             return "autoUpload";
         }
 
-        model.addAttribute("cardList", cardList);
-        model.addAttribute("extractedText", extractedText);
-        model.addAttribute("username", username);
+        // 리디렉션 속성에 데이터 추가
+        redirectAttrs.addFlashAttribute("cardList", cardList);
+        redirectAttrs.addFlashAttribute("extractedText", extractedText);
+        redirectAttrs.addFlashAttribute("username", username);
 
-        return "card";
+        // 리디렉션 추가
+        return "redirect:/board";
     }
 
     private void processImage(HttpSession session, MultipartFile file) {
