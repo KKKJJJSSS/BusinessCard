@@ -52,6 +52,10 @@ public class TextController {
         String username = (String) session.getAttribute("username");
         List<CardDto> cardList = cardMapper.getCardList();
 
+        if (username == null) {
+            return "login";
+        }
+        
         if (extractedText == null) {
             return "autoUpload";
         }
