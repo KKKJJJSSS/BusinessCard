@@ -19,9 +19,7 @@ document.getElementById("searchForm").addEventListener("submit", async (e) => {
 
             if (result.result === "success") {
                 const usernameElement = document.getElementById("username");
-                const passwordElement = document.getElementById("password");
                 usernameElement.textContent = "아이디: " + result.username;
-                passwordElement.textContent = "패스워드: " + result.password;
             } else {
                 alert("번호와 일치하는 계정이 없습니다.");
             }
