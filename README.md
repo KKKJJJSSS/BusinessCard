@@ -1,6 +1,6 @@
 # OCR을 이용한 명함 등록 사이트
 
-<img width="500" style="text-align=center" alt="캡처" src="https://github.com/KKKJJJSSS/BusinessCard/assets/118191869/969fa3e7-cfa9-47f1-900d-42a09d0b4bc1">
+<img width="500" style="text-align: center;" alt="캡처" src="https://github.com/KKKJJJSSS/BusinessCard/assets/118191869/969fa3e7-cfa9-47f1-900d-42a09d0b4bc1">
 
 
 - 초기화면
