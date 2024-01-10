@@ -20,6 +20,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }} # 키페어 필요
           host: ${{ secrets.HOST }} # ip
           username: ${{ secrets.USER }} # 해당 유저 접속 
+          port: ${{ secrets.PORT }}
           script: | # 실행 할 코드
             cd BusinessCard  #경로 이동 (실제 존재하는 레파지토리 경로로 이동해야한다.)
             git pull # git pull
