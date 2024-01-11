@@ -16,7 +16,7 @@ public class LoginController {
     }
     @GetMapping("/test")
     public String test() {
-        return "test2";
+        return "test3";
     }
 
 }
