@@ -26,4 +26,4 @@ jobs:
             git pull # git pull
             killall -9 java # java 프로세스를 강제로 종료합니다.
             ./gradlew clean build -x test # project build
-          
+            cd build/libs # .jar 파일 경로로 이동
