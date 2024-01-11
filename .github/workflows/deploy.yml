@@ -27,4 +27,4 @@ jobs:
             killall -9 java # java 프로세스를 강제로 종료합니다.
             ./gradlew clean build -x test # project build
             cd build/libs # .jar 파일 경로로 이동
-            nohup java -jar BusinessCard-0.0.1-SNAPSHOT.jar & # 백그라운드에서 프로세스가 계속 실행
+            nohup java -jar BusinessCard-0.0.1-SNAPSHOT.jar > nohup.err < /dev/null & # 백그라운드에서 프로세스가 계속 실행
