@@ -1,4 +1,4 @@
-9name: deploy
+name: deploy
 
 # Controls when the workflow will run
 on: # 이럴때 실행 해달라
