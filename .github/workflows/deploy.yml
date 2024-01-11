@@ -24,5 +24,5 @@ jobs:
           script: | # 실행 할 코드
             cd BusinessCard  #경로 이동 (실제 존재하는 레파지토리 경로로 이동해야한다.)
             git pull # git pull
-            pkill -f 'BusinessCard-0.0.1-SNAPSHOT.jar'
+            killall -9 java # java 프로세스를 강제로 종료합니다.
             sudo chmod +x gradlew
