@@ -2,7 +2,7 @@ package com.example.BusinessCard.Controller;
 
 import com.example.BusinessCard.Dto.CardDto;
 import com.example.BusinessCard.Mapper.CardMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,12 +12,11 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 public class BoardController {
-    @Autowired
-    CardMapper cardMapper;
+    private final CardMapper cardMapper;
 
-    @Autowired
-    HttpSession httpSession;
+    private final HttpSession httpSession;
 
     @GetMapping("/board")
     public String getBoard(HttpSession session, Model model) {
