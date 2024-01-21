@@ -30,6 +30,8 @@ jobs:
             nohup java -jar BusinessCard-0.0.1-SNAPSHOT.jar 1> nohup.err 2> /dev/null & # 백그라운드에서 프로세스가 계속 실행
 
             # .bashrc에 환경변수 추가
-            cd ~
+            cd ~  # 현재 사용자의 홈 디렉토리로 이동
+            if ! grep -q "GOOGLE_APPLICATION_CREDENTIALS=" ~/.bashrc; then
             echo 'export GOOGLE_APPLICATION_CREDENTIALS=/home/root/BusinessCard/src/main/resources/key.json' >> ~/.bashrc
-            source ~/.bashrc
+            fi
+            source ~/.bashrc  # 변경된 환경을 현재 쉘 세션에 적용
