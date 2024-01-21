@@ -32,6 +32,6 @@ jobs:
             # .bashrc에 환경변수 추가
             cd ~  # 현재 사용자의 홈 디렉토리로 이동
             if ! grep -q "GOOGLE_APPLICATION_CREDENTIALS=" ~/.bashrc; then
-            echo 'export GOOGLE_APPLICATION_CREDENTIALS=/home/${{ secrets.USER }}/BusinessCard/src/main/resources/key.json' >> ~/.bashrc
+            echo "export GOOGLE_APPLICATION_CREDENTIALS=/home/${{ secrets.USER }}/BusinessCard/src/main/resources/key.json" >> ~/.bashrc
             fi
             source ~/.bashrc  # 변경된 환경을 현재 쉘 세션에 적용
